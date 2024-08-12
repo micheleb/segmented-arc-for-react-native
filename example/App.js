@@ -5,6 +5,7 @@ import { SegmentedArc } from '@shipt/segmented-arc-for-react-native';
 
 const App = () => {
   const [showArcRanges, setShowArcRanges] = useState(false);
+  const [fillValue, setFillValue] = useState(70);
 
   const segments = [
     {
@@ -37,15 +38,16 @@ const App = () => {
 
   const _handlePress = () => {
     setShowArcRanges(!showArcRanges);
+    setFillValue(Math.random() * 100);
   };
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <SegmentedArc
         segments={segments}
-        fillValue={70}
+        fillValue={fillValue}
         isAnimated={true}
-        animationDelay={1000}
+        // animationDelay={1000}
         showArcRanges={showArcRanges}
         ranges={ranges}>
         {metaData => (
